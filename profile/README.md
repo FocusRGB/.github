@@ -4,8 +4,8 @@
 It switches lighting profiles automatically depending on the app or game in focus, and it is
 built around plugins.
 
-> 🚧 **Early development.** No release is published yet. Follow the roadmap in the main
-> repository.
+> 🚧 **Early development.** No release is published yet. Follow the [roadmap](https://github.com/orgs/FocusRGB/projects/1)
+> for progress.
 
 ## Repositories
 
