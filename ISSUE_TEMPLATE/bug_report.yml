@@ -1,0 +1,46 @@
+name: Bug report
+description: Something in FocusRGB, an SDK or an official plugin doesn't work as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Set mode to Automatic
+        2. Open ...
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: e.g. develop @ abc1234, FocusRgb.PluginSdk 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: [App / UI, Profiles & automatic selection, Plugin host, SDK (.NET), SDK (Node), SDK (Python), SignalRGB plugin, Other]
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      placeholder: e.g. Windows 11 24H2 x64
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or diagnostics
+      description: Paste relevant log lines or attach a diagnostics export. Remove anything private.
+      render: text

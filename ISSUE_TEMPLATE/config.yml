@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/FocusRGB/FocusRGB/security/advisories/new
+    about: Please report security problems privately, not as an issue.
+  - name: Roadmap
+    url: https://github.com/orgs/FocusRGB/projects/1
+    about: See what is planned before opening a feature request.
