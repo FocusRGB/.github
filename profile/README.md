@@ -31,5 +31,5 @@ built around plugins.
 - **Official plugins** are repositories in this organization that carry the
   `focusrgb-plugin` topic.
 
-FocusRGB is developed and maintained by **Devantix** (KvK 98560204, the Netherlands).
+FocusRGB is developed and maintained by **Devantix**.
 Licensed under MIT.
