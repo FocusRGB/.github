@@ -29,7 +29,7 @@ built around plugins.
 - **Windows first:** the core is portable, so other platforms can follow.
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph Plugins["Plugins (Separate Processes)"]
         OutputPlugins["Output Plugins<br/>• SignalRGB (today)<br/>• WLED / native (planned)"]
         DiscoveryPlugins["Discovery Plugins<br/>• Steam (today)<br/>• Epic, GOG, etc. (planned)"]
@@ -43,7 +43,7 @@ flowchart LR
     end
 
     subgraph Transport["Transport Layer"]
-        Stdio["Versioned stdio JSON-RPC<br/>• Separate process per plugin<br/>• Spec in FocusRGB sdk/spec<br/>(spec-vX.Y.Z tags)"]
+        Stdio["Versioned stdio JSON-RPC<br/>• Separate process per plugin<br/>• Spec in FocusRGB sdk/spec (spec-vX.Y.Z tags)"]
     end
 
     subgraph App["FocusRGB Desktop App"]
