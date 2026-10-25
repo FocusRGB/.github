@@ -22,25 +22,27 @@ built around plugins.
   or automatically from an ordered list of application groups. The top matching rule wins.
 - **Plugins:** output and integrations run as separate processes that talk to the app over a
   versioned JSON-RPC protocol on stdio. Remove a plugin and the app keeps working.
-- **Game frames:** game integration plugins read game data and emit direct RGB frames; the host
-  accepts those frames only while the bound game profile is active, routing them to output.
+- **Game frames (planned):** game integration plugins read game data and emit direct RGB frames;
+  the host accepts those frames only while the bound game profile is active, routing them to output.
 - **Windows first:** the core is portable, so other platforms can follow.
 
 ```mermaid
 flowchart TD
     subgraph Host["FocusRGB Desktop Host"]
-        App["Focused App or Game"] --> Rules["Ordered Rules\n(Manual override wins)"]
+        App["Focused App or Game"] --> Rules["Ordered Rules<br/>(Manual override wins)"]
+        GameCatalog["Game Catalog"] --> Rules
         Rules --> Active["Active Profile"]
-        Gate{"Game Profile Active?"}
-        Frames["Plugin RGB Frames"] --> Gate
+        Active --> Gate{"Game Profile Active?"}
+        Frames["Plugin RGB Frames"] -.->|"Planned"| Gate
         Active --> OutputRouter["Output Routing"]
         Gate -- Yes --> OutputRouter
         Gate -- No --> Discard["Discarded"]
     end
 
     subgraph Plugins["Process Plugins (stdio JSON-RPC)"]
-        GamePlugin["Game Integration Plugin\n(e.g., Telemetry to RGB)"] --> Frames
-        OutputRouter --> RenderPlugin["Rendering Plugin\n(SignalRGB today, native planned)"]
+        DiscoveryPlugin["Discovery Plugins<br/>(e.g., Steam)"] --> GameCatalog
+        GamePlugin["Game Integration Plugin<br/>(e.g., Telemetry to RGB, planned)"] -.->|"Planned"| Frames
+        OutputRouter --> RenderPlugin["Rendering Plugin<br/>(SignalRGB today, native planned)"]
     end
 
     RenderPlugin --> Devices["RGB Devices & Hardware"]
@@ -52,8 +54,8 @@ Protocol changes are defined and tagged in the main repository before reaching S
 
 ```mermaid
 flowchart LR
-    Spec["FocusRGB\nsdk/spec/"] --> Tag["Tagged Spec Release\nspec-vX.Y.Z"]
-    Tag --> SDKs["Official SDKs\n(.NET on nuget.org; Node & Python planned)"]
+    Spec["FocusRGB<br/>sdk/spec/"] --> Tag["Tagged Spec Release<br/>spec-vX.Y.Z"]
+    Tag --> SDKs["Official SDKs<br/>(.NET on nuget.org; Node & Python planned)"]
     SDKs --> Plugins["FocusRGB Plugins"]
 ```
 
