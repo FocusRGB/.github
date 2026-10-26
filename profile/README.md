@@ -31,7 +31,7 @@ built around plugins.
 ```mermaid
 flowchart TD
     subgraph Plugins["Plugins (Separate Processes)"]
-        OutputPlugins["Output Plugins<br/>• SignalRGB (today)<br/>• WLED / native (planned)"]
+        OutputPlugins["Output Plugins<br/>• SignalRGB (today)<br/>• WLED (planned)"]
         DiscoveryPlugins["Discovery Plugins<br/>• Steam (today)<br/>• Epic, GOG, etc. (planned)"]
         GamePlugins["Game Plugins (planned)<br/>• Read game data in plugin<br/>• Emit RGB frames (Slice 20)"]
         CustomPlugins["Your Plugin<br/>(Any language)"]
@@ -49,7 +49,8 @@ flowchart TD
     subgraph App["FocusRGB Desktop App"]
         PluginHost["Plugin Host<br/>• Install, update, crash restart<br/>• Approval before output resumes"]
         GameCatalog["Game Catalog<br/>(From discovery plugins)"]
-        FocusEngine["Focus Watcher & Ordered Rules<br/>(Manual override wins)"]
+        FocusWatcher["Focus Watcher"]
+        SettingsProfiles["Settings & Profiles<br/>• Ordered rules (manual override wins)"]
         ActiveProfile["Active Profile & Gate<br/>(Game frames accepted only while<br/>bound game profile is active — planned)"]
         OutputRouter["Output Routing<br/>(One writer per device)"]
     end
@@ -70,12 +71,15 @@ flowchart TD
 
     PluginHost -->|"Discovered games"| GameCatalog
     PluginHost -.->|"Planned: game frames"| ActiveProfile
-    GameCatalog --> FocusEngine
-    FocusEngine -->|"Selects"| ActiveProfile
+    GameCatalog --> SettingsProfiles
+    FocusWatcher --> SettingsProfiles
+    SettingsProfiles -->|"Selects"| ActiveProfile
     ActiveProfile --> OutputRouter
-    McpClients -->|"Every change requires<br/>in-app approval"| FocusEngine
+    McpClients -->|"Every mutation requires<br/>in-app approval"| SettingsProfiles
 
-    OutputRouter --> Devices
+    OutputRouter -->|"Routes lighting"| OutputPlugins
+    OutputPlugins --> Devices
+    OutputRouter -.->|"Planned: native output"| Devices
 ```
 
 ## Contributing
