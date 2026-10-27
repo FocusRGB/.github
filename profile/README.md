@@ -14,7 +14,7 @@ built around plugins.
 | Repository | What it is |
 |---|---|
 | [**FocusRGB**](https://github.com/FocusRGB/FocusRGB) | The desktop app (.NET 10 and Avalonia), the portable core, the plugin host and the protocol spec |
-| [**FocusRGB-Plugin-SDK**](https://github.com/FocusRGB/FocusRGB-Plugin-SDK) | Official plugin SDKs: .NET (`FocusRgb.PluginSdk` on nuget.org), with Node and Python planned |
+| [**FocusRGB-SDK**](https://github.com/FocusRGB/FocusRGB-SDK) | Official plugin SDKs: .NET (`FocusRgb.PluginSdk` on nuget.org), with Node and Python planned |
 | [**FocusRGB-Plugin-SignalRGB**](https://github.com/FocusRGB/FocusRGB-Plugin-SignalRGB) | Official plugin that lets SignalRGB render FocusRGB profiles |
 | [**FocusRGB-Plugin-Steam**](https://github.com/FocusRGB/FocusRGB-Plugin-Steam) | Official discovery plugin that scans installed Steam games and launch executables |
 
