@@ -7,6 +7,8 @@ built around plugins.
 > 🚧 **Early development.** No release is published yet. Follow the [roadmap](https://github.com/orgs/FocusRGB/projects/1)
 > for progress.
 
+> **User guides:** Visit the [FocusRGB Wiki](https://github.com/FocusRGB/FocusRGB/wiki) for plugin installation and the SignalRGB setup guide.
+
 ## Repositories
 
 | Repository | What it is |
