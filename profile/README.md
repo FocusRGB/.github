@@ -35,7 +35,7 @@ flowchart TD
     subgraph Plugins["Plugins (Separate Processes)"]
         OutputPlugins["Output Plugins<br/>• SignalRGB (today)<br/>• WLED (planned)"]
         DiscoveryPlugins["Discovery Plugins<br/>• Steam (today)<br/>• Epic, GOG, etc. (planned)"]
-        GamePlugins["Game Plugins (planned)<br/>• Read game data in plugin<br/>• Emit RGB frames (Slice 20)"]
+        GamePlugins["Game Plugins (planned)<br/>• Read game data in plugin<br/>• Emit RGB frames (#48, after Slice 22)"]
         CustomPlugins["Your Plugin<br/>(Any language)"]
     end
 
